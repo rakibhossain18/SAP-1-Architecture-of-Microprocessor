@@ -1,4 +1,4 @@
-# Designing and Implementing a SAP-1 Computer
+# Designing a SAP-1 Architecture of Microprocessor
 
 The SAP-1 computer, which represents the first stage in this progression, is equipped with all of the necessary components to work. The main goal of the course is to give students a fundamental grasp of how computers operate, interact with memory, and connect with other system components like input and output. The instruction set is relatively small and straightforward.
 
@@ -60,6 +60,6 @@ This counter stores the current step to be processed from the RAM. Basically, th
 
 ![Program Counter](./Components/program_counter.JPG)
 <br>
-_Program Counter_
+_Figure 1: Program Counter_
 <hr>
 
