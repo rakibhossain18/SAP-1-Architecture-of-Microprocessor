@@ -8,10 +8,10 @@ The SAP-1 computer, which represents the first stage in this progression, is equ
    - [SAP-1 Components](#sap-1-components)
 2. [Design Process](#design-process)
    - [Program Counter](#program-counter)
+   - [General Purpose Register](#general-purpose-register)
    - [Memory Address Register (MAR)](#memory-addressregister-(MAR))
    - [Random-Access Memory (RAM)](#random-access-memory-(RAM))
    - [Instruction Register](#instruction-register)
-   - [General Purpose Register](#[general-purpose-register)
    - [Arithmetic Logic Unit (ALU)](#arithmetic-logic-unit-(ALU))
    - [4x16 Decoder](#4x16-decoder)
 
