@@ -9,10 +9,10 @@ The SAP-1 computer, which represents the first stage in this progression, is equ
 2. [Design Process](#design-process)
    - [Program Counter](#program-counter)
    - [General Purpose Register](#general-purpose-register)
+   - [Arithmetic Logic Unit (ALU)](#arithmetic-logic-unit-(ALU))
    - [Memory Address Register (MAR)](#memory-addressregister-(MAR))
    - [Random-Access Memory (RAM)](#random-access-memory-(RAM))
    - [Instruction Register](#instruction-register)
-   - [Arithmetic Logic Unit (ALU)](#arithmetic-logic-unit-(ALU))
    - [4x16 Decoder](#4x16-decoder)
 
 
@@ -76,4 +76,12 @@ Register stores a bit using a Flip-flop. Flip-flops are edge triggered device. T
 ![General Purpose Register](./Components/gp_register.JPG)
 <br>
 _Figure 2: General Purpose Register_
+<hr>
+
+### Arithmetic Logic Unit (ALU)
+The ALU or Arithmetic & Logic Unit does all the actual calculations in a processor. For simplicity, out ALU will only include an adder and a subtractor. You may any other functionality as you wish. The process begins with placing 8 single bit full adders. These full adders are then cascaded to create an 8-bit Ripple Carry Adder. One side of the adder is added input 1 coming from A-register and the other input is taken through a set of XOR gates, whose signal comes from B-register. The other inputs of the XOR gates are connected to ′𝑎𝑙𝑢_𝑠𝑢𝑏′ and is used to invert the value coming from B-register to generate 1’s complement. Same signal is added to carry in for 2’s complement while using this pin for subtraction. The output of the ALU is transferred through a Tristate buffer and connected to ′𝑎𝑙𝑢_𝑜𝑢𝑡′. The buffer is controlled by the ′𝑎𝑙𝑢_𝑜𝑢𝑡_𝑒𝑛′. 
+
+![Arithmetic Logic Unit (ALU)](./Components/alu.JPG)
+<br>
+_Figure 2: Arithmetic Logic Unit (ALU)_
 <hr>
