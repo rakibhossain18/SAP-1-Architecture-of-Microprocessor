@@ -8,7 +8,12 @@ The SAP-1 computer, which represents the first stage in this progression, is equ
    - [SAP-1 Components](#sap-1-components)
 2. [Design Process](#design-process)
    - [Program Counter](#program-counter)
-
+   - [Memory Address Register (MAR)](#memory-addressregister-(MAR))
+   - [Random-Access Memory (RAM)](#random-access-memory-(RAM))
+   - [Instruction Register](#instruction-register)
+   - [General Purpose Register](#[general-purpose-register)
+   - [Arithmetic Logic Unit (ALU)](#arithmetic-logic-unit-(ALU))
+   - [4x16 Decoder](#4x16-decoder)
 
 
 <!-- 3. [Implementation Process](#implementation-process)
@@ -33,7 +38,7 @@ The SAP-1 computer utilizes Von-Neumann architecture and is bus-organized. It co
 
 1. **Program Counter**: The function of the program counter is to send and save the memory address of the subsequent instruction that has to be retrieved and executed. The control unit's program counter, which counts from 0000 to 1111, is a component. The program counter delivers the next address, 0001, to the memory once the first instruction has been fetched and performed, and it is then incremented once more. The program counter maintains track of the following instruction that needs to be fetched and performed in this manner.
 
-2. **Input and Memory Address Register (MAR)**: The 4-bit address of data or instructions stored in memory is kept in the Memory Address Register (MAR). The 4-bit address is obtained from the Program Counter through the bus and then stored when the SAP-1 is executing. The RAM is where data or instructions are read from when this stored address is sent there.
+2. **Memory Address Register (MAR)**: The 4-bit address of data or instructions stored in memory is kept in the Memory Address Register (MAR). The 4-bit address is obtained from the Program Counter through the bus and then stored when the SAP-1 is executing. The RAM is where data or instructions are read from when this stored address is sent there.
 
 3. **Random-Access Memory (RAM)**: The 4-bit address of data or instructions stored in memory is kept in the Memory Address Register (MAR). The 4-bit address is obtained from the Program Counter through the bus and then stored when the SAP-1 is executing. The RAM is where data or instructions are read from when this stored address is sent there.
 
