@@ -69,3 +69,11 @@ This counter stores the current step to be processed from the RAM. Basically, th
 _Figure 1: Program Counter_
 <hr>
 
+### General Purpose Register
+The General Purpose Register is a buffer register used in performing arithmetic operations. We used two General Purpose Register, one is A-Register and another is B-Regisrer. It supplies the number to be added or subtracted from the contents of the accumulator to the adder/subtractor. When data is available at the bus and La is high, at the positive clock edge, B register gets and stores the data. 
+Register stores a bit using a Flip-flop. Flip-flops are edge triggered device. That’s why clock is needed to store data to D flip-flop. Multiplexer is also used for get similar data if input of register is not given. Control buffer is used to control the output of the register. A clock signal given for synchronizing signal with other devices. 
+
+![General Purpose Register](./Components/gp_register.JPG)
+<br>
+_Figure 2: General Purpose Register_
+<hr>
