@@ -7,7 +7,10 @@ The SAP-1 computer, which represents the first stage in this progression, is equ
 1. [SAP-1 Architecture](#sap-1-architecture)
    - [SAP-1 Components](#sap-1-components)
 2. [Design Process](#design-process)
-   - [Logisim Design Images](#logisim-design-images)
+   - [Program Counter](#program-counter)
+
+
+
 <!-- 3. [Implementation Process](#implementation-process)
 4. [Results](#results)
    - [Programmed FPGA](#programmed-fpga)
@@ -36,11 +39,9 @@ The SAP-1 computer utilizes Von-Neumann architecture and is bus-organized. It co
 
 4. **Instruction Register**: The instruction takes the instruction from the RAM that was put on the bus and stores it. The instruction register's contents are then divided into two bits. The bottom nibble is a three-state output that is read off the bus as necessary, while the top nibble is a two-state output that goes into the Controller-sequencer.
 
-5. **A-Register**: The A-register is a buffer register used store 8-bit data. It supplies the data to the Arithmetic Logic Unit (ALU) to add/subtract. 
+5. **General Purpose Register**: The General Purpose Register is a buffer register used store 8-bit data. It supplies the data to the Arithmetic Logic Unit (ALU) to add/subtract. 
 
-6. **B-Register**: This is same as ***A-Register***
-
-7. **Arithmetic Logic Unit (ALU)**: The Arithmetic Logic Unit (ALU) asynchronously adds or subtracts a value from the A-Register and B-Register. To do this, it makes advantage of the complement of 2. The output of the ALU is the sum of these values when Su is low, and the subtraction of these values when Su is high.
+6. **Arithmetic Logic Unit (ALU)**: The Arithmetic Logic Unit (ALU) asynchronously adds or subtracts a value from the A-Register and B-Register. To do this, it makes advantage of the complement of 2. The output of the ALU is the sum of these values when Su is low, and the subtraction of these values when Su is high.
 
 
 ## Design Process
