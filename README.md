@@ -83,5 +83,5 @@ The ALU or Arithmetic & Logic Unit does all the actual calculations in a process
 
 ![Arithmetic Logic Unit (ALU)](./Components/alu.JPG)
 <br>
-_Figure 2: Arithmetic Logic Unit (ALU)_
+_Figure 3: Arithmetic Logic Unit (ALU)_
 <hr>
