@@ -7,13 +7,13 @@ The SAP-1 computer, which represents the first stage in this progression, is equ
 1. [SAP-1 Architecture](#sap-1-architecture)
    - [SAP-1 Components](#sap-1-components)
 2. [Design Process](#design-process)
-   - [Program Counter](#program-counter)
    - [General Purpose Register](#general-purpose-register)
    - [Arithmetic Logic Unit (ALU)](#arithmetic-logic-unit-alu)
-   - [Memory Address Register (MAR)](#memory-addressregister-(MAR))
-   - [Random-Access Memory (RAM)](#random-access-memory-(RAM))
-   - [Instruction Register](#instruction-register)
+   - [Program Counter](#program-counter-pc)
    - [4x16 Decoder](#4x16-decoder)
+   - [Random-Access Memory (RAM)](#random-access-memory-ram)
+   - [Instruction Register](#instruction-register-ir)
+   - [Complete Circuit Diagram of SAP Architecture](#complete-circuit-diagram-of-sap-architecture)
 
 
 <!-- 3. [Implementation Process](#implementation-process)
@@ -84,4 +84,54 @@ The ALU or Arithmetic & Logic Unit does all the actual calculations in a process
 ![Arithmetic Logic Unit (ALU)](./Components/alu.JPG)
 <br>
 _Figure 3: Arithmetic Logic Unit (ALU)_
+<hr>
+
+### Program Counter (PC):
+This counter stores the current step to be processed from the RAM. Basically, this counts the lines of our program. So, at 0000, first line of the program is executed and at 0001 the second line is executed. The output can be enabled using “pc_en” pin. This is made using cascaded master-slave JK flip-flops. 
+
+![Program Counter (PC)](./Components/program_counter.JPG)
+<br>
+_Figure 4: Program Counter (PC)_
+<hr>
+
+
+### 4x16 Decoder:
+A decoder is a combinational circuit with up to 2n output lines and n number of select bits. For a given combination of input bits, the decoder will only ever have one of its outputs active. We would use a 4 to 16 decoder in this instance, which has 4 selection lines and 16 output lines. The 16 separate addresses in our RAM, which we will create next, will be accessed using these 16 output lines. The schematic of the decoder can be seen in figure 5.
+
+![4x16 Decoder](./Components/dec_4x16.JPG)
+<br>
+_Figure 5: 4x16 Decoder_
+<hr>
+
+### Random Access Memory (RAM):
+RAM is a memory that can store data randomly. In this SAP architecture we used 8 bits RAM with 16 memory location. Each location can store 8 bits of data and location can be selected using 4x16 decoder. 
+Here each memory location made by 8 bits register, that has input pin ‘data_in’, clock pin ‘clk’, chip select pin ‘cs’ and output pin ‘wr_en’. A single RAM cell can be seen in figure 6.
+
+![SRAM Cell](./Components/sram_cell.JPG)
+<br>
+_Figure 6: Single SRAM Cell_
+
+Using this single RAM cell 16 times we can create a whole RAM, that is shown in figure 3.
+This RAM can take input 4 bits data as input as memory address register suing ‘mar_in_en’ pin and select the chip to store or fetch data from the RAM. Data can be stored by using ‘data_in’ and ‘wr_en’ pin and data also can be fetched by using ‘rd_en’ pin. 
+In RAM data is stored in a location and address of this location also stored. First of all, we store two address in RAM and store two data in this location, then load these two data in A-Register and B-Register. Then ALU sum this and store the result in another location in RAM. The design of the RAM can be seen from figure 7.
+
+![Complete SRAM](./Components/sram.JPG)
+<br>
+_Figure 7: Complete SRAM_
+<hr>
+
+### Instruction Register (IR):
+The instruction that is now being executed is stored in the instruction register. This divides the BUS data into two 4-bit chunks. The lower 4 bits are the operands or addresses, and the upper 4 bits are the Opcode. It has ‘ins_reg_in_en’ pin to enable the input pin in Instruction Register and also has output pin for 4 LSB data. The schematic of the instruction register can be seen in figure 8.
+
+![Instruction Register (IR)](./Components/ir.JPG)
+<br>
+_Figure 8: Instruction Register (IR)_
+<hr>
+
+### Complete Circuit Diagram of SAP Architecture:
+Now we have all the necessary parts for making our very own processor. At this time, we assemble all parts of the processor as shown in the figure 7. Various parts of the processor are now linked through the help of the central BUS. The control pins of all the subcircuits are tunneled to a unified spot for the ease of manipulations. A debug control and debug data pins are also added to the bus in order to program the RAM. At this time, we would need one final component, the control sequencer or control unit. This control unit controls the control BUS to manipulate the various control pins to ensure proper function. This is out of the reach for our lab and we shall run the processor manually to understand how it works. This is shown in figure 9.
+
+![Complete Circuit Diagram of SAP Architecture](./Components/final_diagram.JPG)
+<br>
+_Figure 9: Complete Circuit Diagram of SAP Architecture_
 <hr>
